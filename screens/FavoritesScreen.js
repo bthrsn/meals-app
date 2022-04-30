@@ -5,12 +5,12 @@ import { MEALS } from "../data/dummy-data";
 
 function FavoritesScreen() {
   const favoriteMealsIds = useSelector(state => state.favoriteMeals.ids);
-  const favoriteMeals = MEALS.filter(meal => {
-    favoriteMealsIds.includes(meal.id);
-  });
+
+  const favoriteMeals = MEALS.filter(meal => favoriteMealsIds.includes(meal.id));
+
   return favoriteMeals.length === 0 ? (
     <View style={styles.rootContainer}>
-      <Text style={styles.text}>You have no favorite meal yet</Text>
+      <Text style={styles.text}>You have no favorite meals yet</Text>
     </View>
   ) : (
     <MealsList meals={favoriteMeals} />
